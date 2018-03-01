@@ -1,5 +1,15 @@
 import React from 'react'
 import { Menu, Icon, Button } from 'antd';
+import {
+    BrowserRouter as Router,
+    Route,
+    Link,
+    Switch,
+    Redirect
+} from 'react-router-dom'
+
+
+
 const SubMenu = Menu.SubMenu
 
 class App extends React.Component {
@@ -13,7 +23,7 @@ class App extends React.Component {
     }
     render() {
         return (
-            <div style={{ width: 256 }}>
+            <div style={{ width: '100%' ,height:'100%'}}>
                 <Menu
                     defaultSelectedKeys={['1']}
                     defaultOpenKeys={['sub1']}
@@ -23,7 +33,7 @@ class App extends React.Component {
                 >
                     <Menu.Item key="1">
                         <Icon type="pie-chart" />
-                        <span>Option 1</span>
+                        <span><Link to="/tables">表格</Link></span>
                     </Menu.Item>
                     <Menu.Item key="2">
                         <Icon type="desktop" />

@@ -3,7 +3,7 @@ import React from 'react'
 
 // const FormItem = Form.Item;
 
-// class NormalLoginForm extends React.Component {
+// class NormalLoginForm extends React.Components {
 //
 //     render() {
 //

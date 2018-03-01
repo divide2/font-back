@@ -18,3 +18,16 @@ body {
 .login-form-button {
   width: 100%;
 }
+
+.root{
+    height:100% !important;
+}
+.ant-layout {
+    height: 100%;
+}
+
+.ant-layout-sider-children {
+    height: 100%;
+    padding-top: 0.1px;
+    margin-top: -0.1px;
+}

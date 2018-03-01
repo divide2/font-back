@@ -6,7 +6,7 @@ import {
     Link
 } from 'react-router-dom'
 import login from "../Page/login"
-import Home from "../Page/Home"
+import Home from "../Page/Home/home"
 import User from "../Page/User"
 
 const Routes=()=>(
