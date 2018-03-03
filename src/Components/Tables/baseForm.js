@@ -42,7 +42,6 @@ const columns=[{
         </span>
     )
 }]
-
 const data=[{
  key:'1',
  name:'John Brown',
