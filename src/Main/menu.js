@@ -33,7 +33,7 @@ class App extends React.Component {
                 >
                     <Menu.Item key="1">
                         <Icon type="pie-chart" />
-                        <span><Link to="/tables">表格</Link></span>
+                        <span><Link to="/tables">用户信息</Link></span>
                     </Menu.Item>
                     <Menu.Item key="2">
                         <Icon type="desktop" />
