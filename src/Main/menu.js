@@ -33,7 +33,7 @@ class App extends React.Component {
                 >
                     <Menu.Item key="1">
                         <Icon type="pie-chart" />
-                        <span><Link to="/tables">用户信息</Link></span>
+                        <span><Link to="/tables">用户信息1</Link></span>
                     </Menu.Item>
                     <Menu.Item key="2">
                         <Icon type="desktop" />
@@ -43,9 +43,9 @@ class App extends React.Component {
                         <Icon type="inbox" />
                         <span>Option 3</span>
                     </Menu.Item>
-                    <SubMenu key="sub1" title={<span><Icon type="mail" /><span>Navigation One</span></span>}>
-                        <Menu.Item key="5">Option 5</Menu.Item>
-                        <Menu.Item key="6">Option 6</Menu.Item>
+                    <SubMenu key="sub1" title={<span><Icon type="mail" /><span>系统管理</span></span>}>
+                        <Menu.Item key="5"><Link to="/dic">字典管理</Link></Menu.Item>
+                        <Menu.Item key="6">标签管理</Menu.Item>
                         <Menu.Item key="7">Option 7</Menu.Item>
                         <Menu.Item key="8">Option 8</Menu.Item>
                     </SubMenu>

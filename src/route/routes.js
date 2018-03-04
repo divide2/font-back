@@ -13,7 +13,7 @@ const Routes=()=>(
     <Router>
         <div>
             <Route path="/login" component={login}/>
-            <Route path="/"component={Home}>
+            <Route path="/" component={Home}>
                 {/*<Route path="/User"  component={User}/>*/}
             </Route>
         </div>
