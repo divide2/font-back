@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import BaseForm from '../../Components/Tables/baseForm'
+import BaseForm from '../../components/Tables/baseForm'
 
 class tables extends Component{
     render(){
