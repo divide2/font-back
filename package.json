@@ -2,7 +2,7 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://152f82b8.ngrok.io",
+  "proxy": "http://192.168.27.130:11111",
   "dependencies": {
     "antd": "^3.1.1",
     "axios": "^0.18.0",

@@ -10,10 +10,12 @@ import { Layout, Menu, Icon ,Dropdown,Button,Form} from 'antd';
 import './home.css'
 import DicList from '../../Components/biz/system/dic/DicList'
 import DicAdd from '../../Components/biz/system/dic/DicAdd'
+import DicUpdate from '../../Components/biz/system/dic/DicUpdate'
 import Menus from '../../Main/menu'
 
 const { Header, Content, Footer, Sider } = Layout;
-const WrappedApp = Form.create()(DicAdd);
+const DicAddForm = Form.create()(DicAdd);
+const DicUpdateForm = Form.create()(DicUpdate);
 class Home extends React.Component {
     constructor(props) {
         super(props);
@@ -38,7 +40,8 @@ class Home extends React.Component {
                     <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
                         <Switch>
                             <Route path="/dic/list" exact component={DicList} />
-                            <Route path="/dic/add" component={WrappedApp}/>
+                            <Route path="/dic/add" component={DicAddForm}/>
+                            <Route path="/dic/update/:id" component={DicUpdateForm}/>
                         </Switch>
 
                     </div>

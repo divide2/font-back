@@ -32,15 +32,11 @@ class DicList extends Component {
                 key: 'action',
                 render: (text, record) => (
                     <span>
-            <a href="#">Action-{record.name}</a>
+                <Link to={`/dic/update/${record.id}`}>修改</Link>
             <Divider type="vertical"/>
             <Popconfirm title="确定删除吗?" onConfirm={() => this.onDelete(record.id)}>
               <a href="#">删除</a>
             </Popconfirm>
-            <Divider type="vertical"/>
-            <a href="#" className="ant-dropdown-link">
-                More actions <Icon type="down"/>
-            </a>
         </span>
                 )
             }]
