@@ -1,12 +1,16 @@
 import React, {Component} from 'react'
-import {Table, Icon, Divider, Popconfirm,Button} from 'antd';
+import {Table, Icon, Divider, Popconfirm, Button} from 'antd';
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+
+// import Pager from '../../../util/page/Pager.js'
+
 
 class DicList extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            query: {},
             data: [],
             columns: [{
                 title: '序号',
@@ -58,16 +62,30 @@ class DicList extends Component {
 
     all = () => {
         let self = this;
-        axios.get('/v1/dic/all').then((res) => {
-            self.setState({data: res.data})
+        axios.get('/v1/dic/page', {params: this.query}).then((res) => {
+            self.setState({data: res.data.content})
         })
+    };
+
+    tableChange = (p) => {
+        console.log(p);
+        this.setState({
+            query: {
+                page: p.current,
+                size: p.pageSize
+            }
+        });
+        this.all()
     };
 
     render() {
         return (
             <div>
-                <Button ><Link to="/dic/add">添加</Link></Button>
-                <Table rowKey="id" columns={this.state.columns} dataSource={this.state.data}/>
+                <Button><Link to="/dic/add">添加</Link></Button>
+                <Table rowKey="id" columns={this.state.columns} dataSource={this.state.data}
+                       pagination={{showSizeChanger: true, pageSizeOptions: ['5', '10', '20']}}
+                       onChange={this.tableChange}
+                />
             </div>
         )
     }
