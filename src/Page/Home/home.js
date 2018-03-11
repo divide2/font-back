@@ -8,9 +8,9 @@ import {
 } from 'react-router-dom'
 import { Layout, Menu, Icon ,Dropdown,Button,Form} from 'antd';
 import './home.css'
-import DicList from '../../Components/biz/system/dic/DicList'
-import DicAdd from '../../Components/biz/system/dic/DicAdd'
-import DicUpdate from '../../Components/biz/system/dic/DicUpdate'
+import DicList from '../../components/biz/system/dic/DicList'
+import DicAdd from '../../components/biz/system/dic/DicAdd'
+import DicUpdate from '../../components/biz/system/dic/DicUpdate'
 import Menus from '../../Main/menu'
 
 const { Header, Content, Footer, Sider } = Layout;
