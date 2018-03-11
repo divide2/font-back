@@ -6,13 +6,14 @@ import {
     Switch,
     Redirect
 } from 'react-router-dom'
-import { Layout, Menu, Icon ,Dropdown,Button} from 'antd';
+import { Layout, Menu, Icon ,Dropdown,Button,Form} from 'antd';
 import './home.css'
-import tables from '../../Page/Tables/tables'
+import DicList from '../../Components/biz/system/dic/DicList'
+import DicAdd from '../../Components/biz/system/dic/DicAdd'
 import Menus from '../../Main/menu'
 
 const { Header, Content, Footer, Sider } = Layout;
-
+const WrappedApp = Form.create()(DicAdd);
 class Home extends React.Component {
     constructor(props) {
         super(props);
@@ -36,7 +37,8 @@ class Home extends React.Component {
                 <Content style={{ margin: '24px 16px 0' }}>
                     <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
                         <Switch>
-                            <Route path="/tables" exact component={tables} />
+                            <Route path="/dic/list" exact component={DicList} />
+                            <Route path="/dic/add" component={WrappedApp}/>
                         </Switch>
 
                     </div>
