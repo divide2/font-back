@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {Table, Icon, Divider, Popconfirm, Button} from 'antd';
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+import Label from '../../../util/label/Label'
 
 // import Pager from '../../../util/page/Pager.js'
 
@@ -81,6 +82,7 @@ class DicList extends Component {
     render() {
         return (
             <div>
+                <Label value="Y" group="YES_OR_NO"/>
                 <Button><Link to="/dic/add">添加</Link></Button>
                 <Table rowKey="id" columns={this.state.columns} dataSource={this.state.data}
                        pagination={{showSizeChanger: true, pageSizeOptions: ['5', '10', '20']}}
