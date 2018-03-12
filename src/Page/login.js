@@ -1,29 +1,23 @@
 import React from 'react'
-// import {Form, Icon, Input, Button, Checkbox} from 'antd';
+import PropTypes from 'prop-types'
 
-// const FormItem = Form.Item;
-
-// class NormalLoginForm extends React.Components {
-//
-//     render() {
-//
-//         return (
-//             <div>
-//                 <Button type="primary">Primary</Button>
-//             </div>
-//         );
-//     }
-// }
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 const FormItem = Form.Item;
 
 class NormalLoginForm extends React.Component {
+    static contextTypes = {
+        router: PropTypes.object
+    };
+
     handleSubmit = (e) => {
+        let self=this;
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 console.log('Received values of form: ', values);
             }
+            self.context.router.history.push('/')
+
         });
     }
     render() {

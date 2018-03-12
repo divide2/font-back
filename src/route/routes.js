@@ -12,7 +12,7 @@ import User from "../Page/User"
 const Routes=()=>(
     <Router>
         <div>
-            <Route path="/login" component={login}/>
+            <Route path="/login" exact component={login}/>
             <Route path="/" component={Home}>
                 {/*<Route path="/User"  component={User}/>*/}
             </Route>
