@@ -13,6 +13,7 @@ import DicAdd from '../../components/biz/system/dic/DicAdd'
 import DicUpdate from '../../components/biz/system/dic/DicUpdate'
 import Menus from '../../Main/menu'
 import Counter from '../../components/demo/state/Counter'
+import Number from "../../components/Number";
 
 
 const {Header, Content, Footer, Sider} = Layout;
@@ -42,7 +43,7 @@ class Home extends React.Component {
                     </Header>
                     <Content style={{margin: '24px 16px 0'}}>
                         <div style={{padding: 24, background: '#fff', minHeight: 360}}>
-                            <Counter/>
+                            <Number/>
                             <Switch>
                                 <Route path="/dic/list" exact component={DicList}/>
                                 <Route path="/dic/add" component={DicAddForm}/>

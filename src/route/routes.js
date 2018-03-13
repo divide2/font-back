@@ -30,7 +30,7 @@ export default Routes;
 
 // const ParamsExample = () => (
 //     <Router>
-//         <div>
+//         <dic>
 //             <h2>Accounts</h2>
 //             <ul>
 //                 <li><Link to="/netflix">Netflix</Link></li>
@@ -40,14 +40,14 @@ export default Routes;
 //             </ul>
 //
 //             <Route path="/:id" component={Child}/>
-//         </div>
+//         </dic>
 //     </Router>
 // )
 //
 // const Child = ({ match }) => (
-//     <div>
+//     <dic>
 //         <h3>ID: {match.params.id}</h3>
-//     </div>
+//     </dic>
 // )
 //
 // export default ParamsExample

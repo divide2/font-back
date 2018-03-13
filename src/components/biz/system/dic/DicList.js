@@ -1,8 +1,9 @@
 import React, {Component} from 'react'
 import {Table, Icon, Divider, Popconfirm, Button} from 'antd';
-import axios from 'axios'
 import {Link} from 'react-router-dom'
 import Label from '../../../util/label/Label'
+import api from '../../../../api/Api'
+import {DicDeleteApi, DicListApi} from '../../../../api/dic/ApiDic'
 
 // import Pager from '../../../util/page/Pager.js'
 
@@ -11,7 +12,10 @@ class DicList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            query: {},
+            query: {
+                page: '',
+                size: ''
+            },
             data: [],
             columns: [{
                 title: '序号',
@@ -51,9 +55,12 @@ class DicList extends Component {
 
     onDelete = (id) => {
         let self = this;
-        axios.delete(`/v1/dic/${id}`).then((res) => {
-            console.log(res);
-            self.all();
+        /* axios.delete(`/v1/dic/${id}`).then((res) => {
+             console.log(res);
+             self.all();
+         }) */
+        DicDeleteApi(id).then(res => {
+            self.all()
         })
     };
 
@@ -63,8 +70,8 @@ class DicList extends Component {
 
     all = () => {
         let self = this;
-        axios.get('/v1/dic/page', {params: this.query}).then((res) => {
-            self.setState({data: res.data.content})
+        DicListApi().then(data => {
+            self.setState({data: data.content})
         })
     };
 
@@ -85,7 +92,7 @@ class DicList extends Component {
                 <Label value="Y" group="YES_OR_NO"/>
                 <Button><Link to="/dic/add">添加</Link></Button>
                 <Table rowKey="id" columns={this.state.columns} dataSource={this.state.data}
-                       pagination={{showSizeChanger: true, pageSizeOptions: ['5', '10', '20']}}
+                       pagination={{showSizeChanger: true, pageSizeOptions: ['5', '10', '20'], defaultPageSize: 5}}
                        onChange={this.tableChange}
                 />
             </div>
