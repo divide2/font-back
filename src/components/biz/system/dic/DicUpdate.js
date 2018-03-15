@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types'
 import {Form, Select, Input, Button, message} from 'antd';
 import axios from 'axios'
-
+import {DicUpdateApi} from '../../../../api/dic/ApiDic'
 
 const FormItem = Form.Item;
 
@@ -27,7 +27,7 @@ class DicAdd extends Component {
             if (!err) {
                 values.id=self.props.match.params.id
                 console.log('Received values of form: ', values);
-                axios.patch('/v1/dic', values).then(res => {
+                DicUpdateApi(values).then(res => {
                     message.success(res.data.code);
                     self.context.router.history.push('/dic/list')
                 })
