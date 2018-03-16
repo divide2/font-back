@@ -1,12 +1,9 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types'
-import {Form, Select, Input, Button, message} from 'antd';
-import axios from 'axios'
-
+import React, {Component} from "react";
+import PropTypes from "prop-types";
+import {Button, Form, Input, message} from "antd";
+import DicApi from "../../../../api/dic/DicApi";
 
 const FormItem = Form.Item;
-
-const Option = Select.Option;
 
 class DicAdd extends Component {
     static contextTypes = {
@@ -18,18 +15,8 @@ class DicAdd extends Component {
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 console.log('Received values of form: ', values);
-                axios.post('/v1/dic', values).then(res => {
-                    message.success(res.data.code);
-                    self.context.router.history.push('/dic/list')
-                })
+                DicApi.add(values).then(() => self.context.router.history.push('/dic/list'))
             }
-        });
-    };
-
-    handleSelectChange = (value) => {
-        console.log(value);
-        this.props.form.setFieldsValue({
-            note: `Hi, ${value === 'male' ? 'man' : 'lady'}!`,
         });
     };
 

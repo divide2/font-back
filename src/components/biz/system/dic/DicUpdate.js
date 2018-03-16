@@ -1,12 +1,9 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types'
-import {Form, Select, Input, Button, message} from 'antd';
-import axios from 'axios'
-import {DicUpdateApi} from '../../../../api/dic/ApiDic'
+import React, {Component} from "react";
+import PropTypes from "prop-types";
+import {Button, Form, Input} from "antd";
+import DicApi from "../../../../api/dic/DicApi";
 
 const FormItem = Form.Item;
-
-const Option = Select.Option;
 
 class DicAdd extends Component {
     static contextTypes = {
@@ -15,22 +12,18 @@ class DicAdd extends Component {
 
     componentDidMount(){
         let self=this;
-        axios.get(`/v1/dic/${this.props.match.params.id}`).then(res=>{
+        DicApi.get().then(res=>{
             console.log(res);
             self.props.form.setFieldsValue(res.data)
         })
     }
     handleSubmit = (e) => {
-        let self = this;
         e.preventDefault();
-        this.props.form.validateFields((err, values) => {
+        this.props.form.validateFields((err, data) => {
             if (!err) {
-                values.id=self.props.match.params.id
-                console.log('Received values of form: ', values);
-                DicUpdateApi(values).then(res => {
-                    message.success(res.data.code);
-                    self.context.router.history.push('/dic/list')
-                })
+                data.id = this.props.match.params.id;
+                console.log('Received values of form: ', data);
+                DicApi.update(data).then(this.context.router.history.push('/dic/list'));
             }
         });
     };

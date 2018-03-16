@@ -1,12 +1,9 @@
-import React, {Component} from 'react'
-import {Table, Icon, Divider, Popconfirm, Button} from 'antd';
-import {Link} from 'react-router-dom'
-import Label from '../../../util/label/Label'
-import api from '../../../../api/Api'
-import {DicDeleteApi, DicListApi} from '../../../../api/dic/ApiDic'
-
-// import Pager from '../../../util/page/Pager.js'
-
+import React, {Component} from "react";
+import {Button, Divider, Popconfirm, Table} from "antd";
+import {Link} from "react-router-dom";
+import Dic from "../../../util/label/Dic";
+import DicApi from "../../../../api/dic/DicApi";
+import Label from "../../../util/label/Label";
 
 class DicList extends Component {
     constructor(props) {
@@ -18,11 +15,11 @@ class DicList extends Component {
             },
             data: [],
             columns: [{
-                title: '序号',
+                title: <Label value="ADD_SUCCESS"/>,
                 dataIndex: 'id',
                 render: text => <a href="#">{text}</a>
             }, {
-                title: '中文标签',
+                title: <Label value="ADD_SUCCESS"/>,
                 dataIndex: 'cnLabel'
             }, {
                 title: '英文标签',
@@ -52,45 +49,33 @@ class DicList extends Component {
         }
     }
 
-
     onDelete = (id) => {
-        let self = this;
-        /* axios.delete(`/v1/dic/${id}`).then((res) => {
-             console.log(res);
-             self.all();
-         }) */
-        DicDeleteApi(id).then(res => {
-            self.all()
-        })
+        DicApi.delete(id).then(() => this.list());
     };
 
     componentDidMount() {
-        this.all();
+        this.list();
     }
 
-    all = () => {
-        let self = this;
-        DicListApi().then(data => {
-            self.setState({data: data.content})
-        })
+    list = () => {
+        DicApi.list().then(data => this.setState({data: data.content}));
     };
 
     tableChange = (p) => {
-        console.log(p);
         this.setState({
             query: {
                 page: p.current,
                 size: p.pageSize
             }
         });
-        this.all()
+        this.list()
     };
 
     render() {
         return (
             <div>
-                <Label value="Y" group="YES_OR_NO"/>
-                <Button><Link to="/dic/add">添加</Link></Button>
+                <Dic value="Y" group="YES_OR_NO"/>
+                <Button><Link to="/dic/add"><Label value="ADD_SUCCESS"/></Link></Button>
                 <Table rowKey="id" columns={this.state.columns} dataSource={this.state.data}
                        pagination={{showSizeChanger: true, pageSizeOptions: ['5', '10', '20'], defaultPageSize: 5}}
                        onChange={this.tableChange}
