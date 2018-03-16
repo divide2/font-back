@@ -1,37 +1,30 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
-import axios from "axios";
+import LabelApi from "../../../api/dic/LabelApi";
 
 class Label extends Component {
 
+    static propTypes = {
+        value: PropTypes.string.isRequired,
+    };
     state = {
-        dicMap: new Map(),
-        val: ''
+        dicMap: new Map,
     };
 
     componentDidMount() {
-        let self = this;
-        axios.get('/v1/dic/all').then(res => {
+        LabelApi.all().then(data => {
             let dicMap = new Map();
-            for (let it of res.data) {
-                if (!dicMap.get(it.groupCode)) {
-                    dicMap.set(it.groupCode, new Map().set(it.code, it.cnLabel))
-                } else {
-                    dicMap.get(it.groupCode).set(it.code, it.cnLabel)
-                }
-            }
-            self.setState({dicMap: dicMap});
+            data.forEach(it => {
+                dicMap.set(it.code, it.cnLabel)
+            });
+            this.setState({dicMap: dicMap});
         })
 
     }
 
     mergeVal = () => {
-        let group = this.state.dicMap.get(this.props.group);
-        if (group) {
-            return group.get(this.props.value)
-        } else {
-            return this.props.value
-        }
+        console.log(this.state.dicMap);
+        return this.state.dicMap.get(this.props.value) || this.props.value;
     };
 
     render() {
@@ -42,9 +35,5 @@ class Label extends Component {
 
 }
 
-Label.propTypes = {
-    value: PropTypes.string.isRequired,
-    group: PropTypes.string.isRequired,
-};
 
 export default Label;

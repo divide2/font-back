@@ -10,12 +10,13 @@ class BaseForm extends Component {
         }
     }
 
-    componentDidMount(){
-        let that=this;
-        axios.get('/v1/dic/all').then(function(res){
-            that.setState({data:res.data})
+    componentDidMount() {
+        let that = this;
+        axios.get('/v1/dic/all').then(function (res) {
+            that.setState({data: res.data})
         })
     }
+
     render() {
         return (
             <Table columns={columns} dataSource={this.state.data}/>
@@ -23,30 +24,30 @@ class BaseForm extends Component {
     }
 }
 
-const columns=[{
-    title:'序号',
-    dataIndex:'orderNum',
-    key:'orderNum',
-    render:text=><a href="#">{text}</a>
-},{
-    title:'中文标签',
-    dataIndex:'cnLabel'
-},{
-    title:'英文标签',
-    dataIndex:'enLabel'
-},{
-    title:'组码',
-    dataIndex:'groupCode'
-},{
-    title:'组名',
-    dataIndex:'groupName'
-},{
-    title:'编码',
-    dataIndex:'code'
-},{
-    title:'Action',
-    key:'action',
-    render:(text,record)=>(
+const columns = [{
+    title: '序号',
+    dataIndex: 'orderNum',
+    key: 'orderNum',
+    render: text => <a href="#">{text}</a>
+}, {
+    title: '中文标签',
+    dataIndex: 'cnLabel'
+}, {
+    title: '英文标签',
+    dataIndex: 'enLabel'
+}, {
+    title: '组码',
+    dataIndex: 'groupCode'
+}, {
+    title: '组名',
+    dataIndex: 'groupName'
+}, {
+    title: '编码',
+    dataIndex: 'code'
+}, {
+    title: 'Action',
+    key: 'action',
+    render: (text, record) => (
         <span>
             <a href="#">Action-{record.name}</a>
             <Divider type="vertical"/>
@@ -82,28 +83,6 @@ const data = [{
 //     .catch(function (err) {
 //         console.log(err);
 //     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 export default BaseForm;

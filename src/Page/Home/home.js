@@ -12,7 +12,6 @@ import DicList from '../../components/biz/system/dic/DicList'
 import DicAdd from '../../components/biz/system/dic/DicAdd'
 import DicUpdate from '../../components/biz/system/dic/DicUpdate'
 import Menus from '../../Main/menu'
-import Counter from '../../components/demo/state/Counter'
 import Number from "../../components/Number";
 
 
