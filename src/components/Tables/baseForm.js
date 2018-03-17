@@ -12,7 +12,7 @@ class BaseForm extends Component {
 
     componentDidMount() {
         let that = this;
-        axios.get('/v1/dic/all').then(function (res) {
+        axios.get('/v1/system/all').then(function (res) {
             that.setState({data: res.data})
         })
     }

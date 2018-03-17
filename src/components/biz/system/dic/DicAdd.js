@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
 import {Button, Form, Input, message} from "antd";
-import DicApi from "../../../../api/dic/DicApi";
+import DicApi from "../../../../api/system/DicApi";
 
 const FormItem = Form.Item;
 
@@ -15,7 +15,7 @@ class DicAdd extends Component {
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 console.log('Received values of form: ', values);
-                DicApi.add(values).then(() => self.context.router.history.push('/dic/list'))
+                DicApi.add(values).then(() => self.context.router.history.push('/system/list'))
             }
         });
     };

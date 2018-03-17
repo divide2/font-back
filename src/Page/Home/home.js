@@ -1,16 +1,13 @@
 import React, {Component} from 'react'
-import {
-    BrowserRouter as Router,
-    Route,
-    Link,
-    Switch,
-    Redirect
-} from 'react-router-dom'
-import {Layout, Menu, Icon, Dropdown, Button, Form} from 'antd';
+import {Route, Switch} from 'react-router-dom'
+import {Form, Layout} from 'antd';
 import './home.css'
 import DicList from '../../components/biz/system/dic/DicList'
 import DicAdd from '../../components/biz/system/dic/DicAdd'
 import DicUpdate from '../../components/biz/system/dic/DicUpdate'
+import LabelList from '../../components/biz/system/label/LabelList'
+import LabelAdd from '../../components/biz/system/label/LabelAdd'
+import LabelUpdate from '../../components/biz/system/label/LabelUpdate'
 import Menus from '../../Main/menu'
 import Number from "../../components/Number";
 
@@ -18,6 +15,10 @@ import Number from "../../components/Number";
 const {Header, Content, Footer, Sider} = Layout;
 const DicAddForm = Form.create()(DicAdd);
 const DicUpdateForm = Form.create()(DicUpdate);
+const LabelAddForm = Form.create()(LabelAdd);
+const LabelUpdateForm = Form.create()(LabelUpdate);
+
+
 class Home extends React.Component {
     constructor(props) {
         super(props);
@@ -47,6 +48,9 @@ class Home extends React.Component {
                                 <Route path="/dic/list" exact component={DicList}/>
                                 <Route path="/dic/add" component={DicAddForm}/>
                                 <Route path="/dic/update/:id" component={DicUpdateForm}/>
+                                <Route path="/label/list" component={LabelList}/>
+                                <Route path="/label/add" component={LabelAddForm}/>
+                                <Route path="/label/update/:id" component={LabelUpdateForm}/>
                             </Switch>
                         </div>
                     </Content>

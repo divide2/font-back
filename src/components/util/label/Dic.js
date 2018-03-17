@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
-import DicApi from "../../../api/dic/DicApi";
+import DicApi from "../../../api/system/DicApi";
 
 class Dic extends Component {
 

@@ -1,33 +1,26 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
 import {Button, Form, Input} from "antd";
-import DicApi from "../../../../api/system/DicApi";
+import LabelApi from "../../../../api/system/LabelApi";
 
 const FormItem = Form.Item;
 
-class DicUpdate extends Component {
+class LabelAdd extends Component {
     static contextTypes = {
         router: PropTypes.object
     };
-
-    componentDidMount(){
-        let self=this;
-        DicApi.get(this.props.match.params.id).then(data=>{
-            self.props.form.setFieldsValue(data)
-        })
-    }
     handleSubmit = (e) => {
+        let self = this;
         e.preventDefault();
-        this.props.form.validateFields((err, data) => {
+        this.props.form.validateFields((err, values) => {
             if (!err) {
-                data.id = this.props.match.params.id;
-                console.log('Received values of form: ', data);
-                DicApi.update(data).then(this.context.router.history.push('/system/list'));
+                console.log('Received values of form: ', values);
+                LabelApi.add(values).then(() => self.context.router.history.push('/Label/list'))
             }
         });
     };
-    render() {
 
+    render() {
         const {getFieldDecorator} = this.props.form;
         return (
             <Form onSubmit={this.handleSubmit}>
@@ -48,28 +41,6 @@ class DicUpdate extends Component {
                     wrapperCol={{span: 12}}
                 >
                     {getFieldDecorator('enLabel', {
-                        rules: [{required: true, message: '必填!'}],
-                    })(
-                        <Input/>
-                    )}
-                </FormItem>
-                <FormItem
-                    label="组码"
-                    labelCol={{span: 5}}
-                    wrapperCol={{span: 12}}
-                >
-                    {getFieldDecorator('groupCode', {
-                        rules: [{required: true, message: '必填!'}],
-                    })(
-                        <Input/>
-                    )}
-                </FormItem>
-                <FormItem
-                    label="组名"
-                    labelCol={{span: 5}}
-                    wrapperCol={{span: 12}}
-                >
-                    {getFieldDecorator('groupName', {
                         rules: [{required: true, message: '必填!'}],
                     })(
                         <Input/>
@@ -99,4 +70,4 @@ class DicUpdate extends Component {
 }
 
 
-export default DicUpdate
+export default LabelAdd

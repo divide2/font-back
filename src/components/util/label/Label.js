@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
-import LabelApi from "../../../api/dic/LabelApi";
+import LabelApi from "../../../api/system/LabelApi";
 
 class Label extends Component {
 
@@ -15,7 +15,7 @@ class Label extends Component {
         LabelApi.all().then(data => {
             let dicMap = new Map();
             data.forEach(it => {
-                dicMap.set(it.code, it.cnLabel)
+                dicMap.set(it.code, it.enLabel)
             });
             this.setState({dicMap: dicMap});
         })

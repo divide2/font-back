@@ -45,7 +45,7 @@ class App extends React.Component {
                     </Menu.Item>
                     <SubMenu key="sub1" title={<span><Icon type="mail" /><span>系统管理</span></span>}>
                         <Menu.Item key="5"><Link to="/dic/list">字典管理</Link></Menu.Item>
-                        <Menu.Item key="6">标签管理</Menu.Item>
+                        <Menu.Item key="6"><Link to="/label/list"/>标签管理</Menu.Item>
                         <Menu.Item key="7">Option 7</Menu.Item>
                         <Menu.Item key="8">Option 8</Menu.Item>
                     </SubMenu>
