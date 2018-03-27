@@ -10,6 +10,7 @@ import LabelAdd from '../../components/biz/system/label/LabelAdd'
 import LabelUpdate from '../../components/biz/system/label/LabelUpdate'
 import Menus from '../../Main/menu'
 import Number from "../../components/Number";
+import Chat from "../../components/biz/message/Chat";
 
 
 const {Header, Content, Footer, Sider} = Layout;
@@ -44,6 +45,7 @@ class Home extends React.Component {
                     <Content style={{margin: '24px 16px 0'}}>
                         <div style={{padding: 24, background: '#fff', minHeight: 360}}>
                             <Number/>
+                            <Chat/>
                             <Switch>
                                 <Route path="/dic/list" exact component={DicList}/>
                                 <Route path="/dic/add" component={DicAddForm}/>
