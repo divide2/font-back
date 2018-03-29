@@ -28,7 +28,7 @@ const columns = [{
     title: '序号',
     dataIndex: 'orderNum',
     key: 'orderNum',
-    render: text => <a href="#">{text}</a>
+    render: text => <a href="/">{text}</a>
 }, {
     title: '中文标签',
     dataIndex: 'cnLabel'
@@ -49,11 +49,11 @@ const columns = [{
     key: 'action',
     render: (text, record) => (
         <span>
-            <a href="#">Action-{record.name}</a>
+            <a href="/">Action-{record.name}</a>
             <Divider type="vertical"/>
-            <a href="#">删除</a>
+            <a href="/">删除</a>
             <Divider type="vertical"/>
-            <a href="#" className="ant-dropdown-link">
+            <a href="/" className="ant-dropdown-link">
                 More actions <Icon type="down"/>
             </a>
         </span>

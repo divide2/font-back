@@ -17,7 +17,7 @@ class DicList extends Component {
             columns: [{
                 title: <Label value="ADD_SUCCESS"/>,
                 dataIndex: 'id',
-                render: text => <a href="#">{text}</a>
+                render: text => <a href="/">{text}</a>
             }, {
                 title: <Label value="ADD_SUCCESS"/>,
                 dataIndex: 'cnLabel'
@@ -41,7 +41,7 @@ class DicList extends Component {
                 <Link to={`/dic/update/${record.id}`}>修改</Link>
             <Divider type="vertical"/>
             <Popconfirm title="确定删除吗?" onConfirm={() => this.onDelete(record.id)}>
-              <a href="#">删除</a>
+              <a href="/">删除</a>
             </Popconfirm>
         </span>
                 )

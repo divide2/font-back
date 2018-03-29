@@ -13,15 +13,14 @@ class Chat extends Component {
         message: ''
     };
     connect = () => {
-        let sock = SockJS('/join');
+        let sock = SockJS('/gs-guide-websocket');
         stompClient = Stomp.over(sock);
-        console.log(stompClient)
         stompClient.connect({}, (frame) => {
             console.log(frame);
             this.setState({connected: true});
             stompClient.subscribe('/topic/greetings', function (res) {
-                console.log(res);
-                this.setState({message: JSON.parse(res.body).content})
+                console.log(res.body);
+                this.setState({reply: JSON.parse(res.body).content})
             });
         })
     };
@@ -40,7 +39,7 @@ class Chat extends Component {
     };
 
     sendMessage = () => {
-        stompClient.send("/app/greeting", {}, {})
+        stompClient.send("/app/greeting", {}, {message: this.state.message})
     };
 
     render() {

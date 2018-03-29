@@ -1,14 +1,14 @@
-import React, {Component} from 'react'
-import {Route, Switch} from 'react-router-dom'
-import {Form, Layout} from 'antd';
-import './home.css'
-import DicList from '../../components/biz/system/dic/DicList'
-import DicAdd from '../../components/biz/system/dic/DicAdd'
-import DicUpdate from '../../components/biz/system/dic/DicUpdate'
-import LabelList from '../../components/biz/system/label/LabelList'
-import LabelAdd from '../../components/biz/system/label/LabelAdd'
-import LabelUpdate from '../../components/biz/system/label/LabelUpdate'
-import Menus from '../../Main/menu'
+import React, {Component} from "react";
+import {Route, Switch} from "react-router-dom";
+import {Form, Layout} from "antd";
+import "./home.css";
+import DicList from "../../components/biz/system/dic/DicList";
+import DicAdd from "../../components/biz/system/dic/DicAdd";
+import DicUpdate from "../../components/biz/system/dic/DicUpdate";
+import LabelList from "../../components/biz/system/label/LabelList";
+import LabelAdd from "../../components/biz/system/label/LabelAdd";
+import LabelUpdate from "../../components/biz/system/label/LabelUpdate";
+import Menus from "../../Main/menu";
 import Number from "../../components/Number";
 import Chat from "../../components/biz/message/Chat";
 
@@ -20,7 +20,7 @@ const LabelAddForm = Form.create()(LabelAdd);
 const LabelUpdateForm = Form.create()(LabelUpdate);
 
 
-class Home extends React.Component {
+class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {}

@@ -1,26 +1,19 @@
-import React from 'react'
-import { Menu, Icon, Button } from 'antd';
-import {
-    BrowserRouter as Router,
-    Route,
-    Link,
-    Switch,
-    Redirect
-} from 'react-router-dom'
+import React from "react";
+import {Button, Icon, Menu} from "antd";
+import {Link} from "react-router-dom";
 
 
-
-const SubMenu = Menu.SubMenu
+const SubMenu = Menu.SubMenu;
 
 class App extends React.Component {
     state = {
         collapsed: false,
-    }
+    };
     toggleCollapsed = () => {
         this.setState({
             collapsed: !this.state.collapsed,
         });
-    }
+    };
     render() {
         return (
             <div style={{ width: '100%' ,height:'100%'}}>

@@ -8,7 +8,7 @@ class Label extends Component {
         value: PropTypes.string.isRequired,
     };
     state = {
-        dicMap: new Map,
+        dicMap: new Map(),
     };
 
     componentDidMount() {

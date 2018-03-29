@@ -17,7 +17,7 @@ class LabelList extends Component {
                 {
                 title: <Label value="column_id"/>,
                 dataIndex: 'id',
-                render: text => <a href="#">{text}</a>
+                render: text => <a href="/">{text}</a>
             }, {
                 title: <Label value="column_cn_label"/>,
                 dataIndex: 'cnLabel'
@@ -36,7 +36,7 @@ class LabelList extends Component {
                 <Link to={`/label/update/${record.id}`}>修改</Link>
             <Divider type="vertical"/>
             <Popconfirm title="确定删除吗?" onConfirm={() => this.onDelete(record.id)}>
-              <a href="#">删除</a>
+              <a href="/">删除</a>
             </Popconfirm>
         </span>
                 )

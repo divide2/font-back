@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
-import {Button, Form, Input, message} from "antd";
+import {Button, Form, Input} from "antd";
 import DicApi from "../../../../api/system/DicApi";
 
 const FormItem = Form.Item;
