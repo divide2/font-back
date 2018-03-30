@@ -10,16 +10,15 @@ class NormalLoginForm extends React.Component {
     };
 
     handleSubmit = (e) => {
-        let self=this;
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 console.log('Received values of form: ', values);
-            }
-            self.context.router.history.push('/')
 
+                this.context.router.history.push('/index')
+            }
         });
-    }
+    };
     render() {
         const { getFieldDecorator } = this.props.form;
         return (
@@ -38,6 +37,7 @@ class NormalLoginForm extends React.Component {
                         <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />
                     )}
                 </FormItem>
+                <a href="http://bvvy.free.ngrok.cc/oauth2/authorization/github"><Icon type="github" /></a>
                 <FormItem>
                     {getFieldDecorator('remember', {
                         valuePropName: 'checked',
